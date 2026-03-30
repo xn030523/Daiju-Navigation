@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 呆橘导航站
 
-## Getting Started
+一个基于 `Next.js 16 + App Router + Tailwind CSS` 的极简高级风导航站模板，默认按静态导出方式构建，便于部署到腾讯云 Pages 和 Cloudflare Pages。
 
-First, run the development server:
+## 本地开发
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+默认访问 `http://localhost:3000`。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 当前结构
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app/layout.tsx`：站点根布局与 SEO 元数据
+- `src/app/page.tsx`：首页结构与内容展示
+- `src/content/navigation/_meta.md`：站点标题与摘要
+- `src/content/navigation/*/index.md`：单个模块的分类信息与站点列表
+- `src/lib/navigation.ts`：模块 Markdown 解析逻辑
+- `src/app/globals.css`：全局视觉风格与组件层次
 
-## Learn More
+## 部署说明
 
-To learn more about Next.js, take a look at the following resources:
+项目已在 `next.config.ts` 中开启 `output: "export"`，执行以下命令后会生成静态产物：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+构建完成后可将静态输出目录用于 Pages 平台部署。
 
-## Deploy on Vercel
+## 后续扩展建议
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 增加分类详情页与标签页
+- 接入本地搜索或 Algolia 搜索
+- 补充 `sitemap`、`robots.txt` 和自定义 OG 图
+- 将 `src/content/navigation` 替换为 CMS 或远程内容源
