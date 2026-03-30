@@ -46,6 +46,9 @@ export async function generateMetadata(): Promise<Metadata> {
       index: true,
       follow: true,
     },
+    other: {
+      "baidu-site-verification": "codeva-Jm0NBbncNS",
+    },
   };
 }
 
