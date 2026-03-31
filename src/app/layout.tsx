@@ -67,9 +67,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DSG969J25C"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -77,7 +77,7 @@ export default function RootLayout({
             gtag('config', 'G-DSG969J25C');
           `}
         </Script>
-        <Script id="baidu-analytics" strategy="afterInteractive">
+        <Script id="baidu-analytics" strategy="beforeInteractive">
           {`
             var _hmt = _hmt || [];
             (function() {
